@@ -40,6 +40,15 @@ function formatMins(value) {
   return min;
 }
 
+function formatDriveMode(value) {
+  if (value == 0) return 'OFF';
+  if (value == 1) return 'ECO';
+  if (value == 2) return 'TOUR';
+  if (value == 3) return 'EMTB';
+  if (value == 4) return 'TURBO';
+}
+
 function enforceDot1(stringValue) {
   return stringValue.indexOf('.') == -1 ? stringValue + '.0' : stringValue;
 }
+
