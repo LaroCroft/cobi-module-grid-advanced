@@ -27,7 +27,7 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [
   {
-    id: 'Mode',
+    id: 'mode',
     name: 'Mode',
     subscribe: COBI.motor.driveMode.subscribe,
     unsubscribe: COBI.motor.driveMode.unsubscribe,
@@ -135,7 +135,7 @@ var definitions = [
     defaultValue: '-'
   },  
   {
-    id: 'speedGPS',
+    id: 'speed_gps',
     name: 'GPS Speed',
     subscribe: COBI.mobile.location.subscribe,
     unsubscribe: COBI.mobile.location.unsubscribe,
