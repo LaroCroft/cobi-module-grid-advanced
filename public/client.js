@@ -1,7 +1,7 @@
 COBI.init('token');
 
 // Make clock appear in upper right corner
-COBI.app.clockVisible.write(false);
+COBI.app.clockVisible.write(true);
 // Also listen to standard controller events
 COBI.devkit.overrideThumbControllerMapping.write(true);
 
@@ -26,6 +26,15 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
 
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [
+  {
+    id: 'Mode',
+    name: 'Mode',
+    subscribe: COBI.motor.driveMode.subscribe,
+    unsubscribe: COBI.motor.driveMode.unsubscribe,
+    formatter: formatDriveMode,
+    unit: '',
+    defaultValue: '-'
+  },
   {
     id: 'speed',
     name: 'Speed',
@@ -54,11 +63,11 @@ var definitions = [
     defaultValue: '-'
   }, 
   {
-    id: 'remaining_distance',
-    name: 'Rem. distance',
-    subscribe: COBI.motor.distance.subscribe,
-    unsubscribe: COBI.motor.distance.unsubscribe,
-    formatter: formatDistanceDot1,
+    id: 'range',
+    name: 'Range',
+    subscribe: COBI.motor.range.subscribe,
+    unsubscribe: COBI.motor.range.unsubscribe,
+    formatter: formatInt,
     unit: 'km',
     defaultValue: '-'
   }, 
