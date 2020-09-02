@@ -5,6 +5,8 @@ var localStorageKeyGridZoom = 'grid-zoom';
 var defaultOrderedList = [
   'speed',
   'average_speed',
+  'battery',
+  'remaining_distance',
   'cadence',
   'user_power',
   'heart_rate',
