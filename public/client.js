@@ -32,7 +32,7 @@ var definitions = [
     subscribe: COBI.motor.driveMode.subscribe,
     unsubscribe: COBI.motor.driveMode.unsubscribe,
     formatter: formatDriveMode,
-    unit: '',
+    unit: 'mode',
     defaultValue: '-'
   },
   {
