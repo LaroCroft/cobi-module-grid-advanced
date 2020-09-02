@@ -4,6 +4,15 @@ function formatLocation(value) {
   return value.bearing;
 }
 
+function formatAltitude(value) {
+  return value.altitude;
+}
+
+function formatGPSSpeedDot1(value) {
+  var speed = formatDot1(value * 3.6).toString();
+  return enforceDot1(speed);
+}
+
 function formatInt(value) {
   return parseInt(value);
 }
