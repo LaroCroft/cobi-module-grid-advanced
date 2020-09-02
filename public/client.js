@@ -45,6 +45,24 @@ var definitions = [
     defaultValue: '-'
   },
   {
+    id: 'battery',
+    name: 'Battery',
+    subscribe: COBI.battery.state.subscribe,
+    unsubscribe: COBI.battery.state.unsubscribe,
+    formatter: formatInt,
+    unit: '%',
+    defaultValue: '-'
+  }, 
+  {
+    id: 'remaining_distance',
+    name: 'Rem. distance',
+    subscribe: COBI.motor.distance.subscribe,
+    unsubscribe: COBI.motor.distance.unsubscribe,
+    formatter: formatDistanceDot1,
+    unit: 'km',
+    defaultValue: '-'
+  }, 
+  {
     id: 'user_power',
     name: 'User Power',
     subscribe: COBI.rideService.userPower.subscribe,
