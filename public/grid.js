@@ -3,14 +3,18 @@ var localStorageKeyGridOrderedList = 'grid-ordered-list';
 var localStorageKeyGridZoom = 'grid-zoom';
 
 var defaultOrderedList = [
+  'mode',
   'speed',
   'average_speed',
   'battery',
-  'remaining_distance',
+  'range',
   'cadence',
   'user_power',
   'heart_rate',
   'ascent',
+  'altitude',
+  'heading',
+  'speed_gps',
   'calories',
   'distance',
   'duration'
