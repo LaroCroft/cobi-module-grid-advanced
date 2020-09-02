@@ -11,7 +11,7 @@ It's part of a collection of Open Source [modules](https://cobi.bike/devkit) for
 
 The quickest way to test the module via [Glitch.com](https://glitch.com):
 
-[<img src="open_demo.png" width="250px" alt="Open demo button">](https://glitch.com/edit/#!/import/github/cobi-bike/Module-Grid)
+[<img src="open_demo.png" width="250px" alt="Open demo button">](https://glitch.com/edit/#!/import/github/larocroft/Module-Grid-Advanced)
 
 Glitch.com allows you to edit, host and fork Node.js applications for quick prototyping.
 
