@@ -120,7 +120,7 @@ var definitions = [
     id: 'altitude',
     name: 'Altitude',
     subscribe: COBI.mobile.location.subscribe,
-    unsubscribe: COBI.tourService.location.unsubscribe,
+    unsubscribe: COBI.mobile.location.unsubscribe,
     formatter: formatAltitude,
     unit: 'm',
     defaultValue: '-'
@@ -129,7 +129,7 @@ var definitions = [
     id: 'heading',
     name: 'Heading',
     subscribe: COBI.mobile.heading.subscribe,
-    unsubscribe: COBI.tourService.heading.unsubscribe,
+    unsubscribe: COBI.mobile.heading.unsubscribe,
     formatter: formatInt,
     unit: '°',
     defaultValue: '-'
@@ -138,7 +138,7 @@ var definitions = [
     id: 'speedGPS',
     name: 'GPS Speed',
     subscribe: COBI.mobile.location.subscribe,
-    unsubscribe: COBI.tourService.location.unsubscribe,
+    unsubscribe: COBI.mobile.location.unsubscribe,
     formatter: formatGPSSpeedDot1,
     unit: 'km/h',
     defaultValue: '-'
