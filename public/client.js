@@ -117,6 +117,33 @@ var definitions = [
     defaultValue: '-'
   },
   {
+    id: 'altitude',
+    name: 'Altitude',
+    subscribe: COBI.mobile.location.subscribe,
+    unsubscribe: COBI.tourService.location.unsubscribe,
+    formatter: formatAltitude,
+    unit: 'm',
+    defaultValue: '-'
+  },  
+  {
+    id: 'heading',
+    name: 'Heading',
+    subscribe: COBI.mobile.heading.subscribe,
+    unsubscribe: COBI.tourService.heading.unsubscribe,
+    formatter: formatInt,
+    unit: '°',
+    defaultValue: '-'
+  },  
+  {
+    id: 'speedGPS',
+    name: 'GPS Speed',
+    subscribe: COBI.mobile.location.subscribe,
+    unsubscribe: COBI.tourService.location.unsubscribe,
+    formatter: formatGPSSpeedDot1,
+    unit: 'km/h',
+    defaultValue: '-'
+  },  
+  {
     id: 'heart_rate',
     name: 'Heart Rate',
     subscribe: COBI.rideService.heartRate.subscribe,
