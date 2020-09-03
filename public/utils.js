@@ -1,5 +1,9 @@
 // Formatters
 
+function formatBattery(value) {
+  return value.batteryLevel;
+}
+
 function formatLocation(value) {
   return value.bearing;
 }
