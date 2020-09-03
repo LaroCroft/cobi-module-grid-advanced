@@ -4,27 +4,30 @@ var localStorageKeyGridZoom = 'grid-zoom';
 
 var defaultOrderedList = [
   'mode',
-  'speed',
-  'average_speed',
   'battery',
   'range',
-  'cadence',
   'user_power',
-  'heart_rate',
-  'ascent',
-  'altitude',
-  'heading',
-  'speed_gps',
-  'calories',
+
   'distance',
   'duration'
+  'calories',
+  'altitude',
+
+  'speed_gps',
+  'heading',
+  'ascent',
+  'speed',
+
+  'average_speed',
+  'cadence',
+  'heart_rate',
 ];
 
-var defaultZoomIndex = 3;
-var editZoomIndexOverride = 2;
+var defaultZoomIndex = 5;
+var editZoomIndexOverride = 5;
 
 var minZoomIndex = 1;
-var maxZoomIndex = 4;
+var maxZoomIndex = 5;
 
 var remToZoomMapping = [0, 2.7, 2.7, 1.9, 1.4];
 
