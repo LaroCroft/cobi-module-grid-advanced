@@ -10,7 +10,7 @@ var defaultOrderedList = [
   'calories',
 
   'distance',
-  'duration'
+  'duration',
   'altitude',
   'heading',
   'ascent',
@@ -19,7 +19,7 @@ var defaultOrderedList = [
   'speed_gps',
   'average_speed',
   'cadence',
-  'heart_rate',
+  'heart_rate'
 ];
 
 var defaultZoomIndex = 5;
