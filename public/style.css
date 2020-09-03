@@ -38,6 +38,11 @@ ul {
   text-transform: uppercase;
 }
 
+mode.value {
+  font: 100 1.2rem/20px 'UniSansRegular', Avenir, Heveltica, Arial, san-serif; color: #FFF;
+  text-transform: uppercase;
+}
+
 .unit {
   font: 100 .55rem/22px 'UniSansRegular', Avenir, Heveltica, Arial, san-serif; color: #00c8e6;
   margin-top: .8rem;
