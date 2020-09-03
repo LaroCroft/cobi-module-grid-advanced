@@ -5,11 +5,11 @@ function formatBattery(value) {
 }
 
 function formatLocation(value) {
-  return value.bearing;
+  return parseInt(value.bearing);
 }
 
 function formatAltitude(value) {
-  return value.altitude;
+  return parseInt(value.altitude);
 }
 
 function formatGPSSpeedDot1(value) {
