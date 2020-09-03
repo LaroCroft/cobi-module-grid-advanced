@@ -126,11 +126,11 @@ var definitions = [
     defaultValue: '-'
   },  
   {
-    id: 'heading',
-    name: 'Heading',
-    subscribe: COBI.mobile.heading.subscribe,
-    unsubscribe: COBI.mobile.heading.unsubscribe,
-    formatter: formatInt,
+    id: 'bearing',
+    name: 'Bearing',
+    subscribe: COBI.mobile.location.subscribe,
+    unsubscribe: COBI.mobile.location.unsubscribe,
+    formatter: formatBearing,
     unit: 'degrees',
     defaultValue: '-'
   },  
