@@ -130,7 +130,7 @@ var definitions = [
     name: 'Bearing',
     subscribe: COBI.mobile.location.subscribe,
     unsubscribe: COBI.mobile.location.unsubscribe,
-    formatter: formatBearing,
+    formatter: formatLocation,
     unit: 'degrees',
     defaultValue: '-'
   },  
