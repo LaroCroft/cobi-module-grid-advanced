@@ -73,7 +73,7 @@ var definitions = [
   }, 
   {
     id: 'power',
-    name: 'User Power',
+    name: 'Power',
     subscribe: COBI.rideService.userPower.subscribe,
     unsubscribe: COBI.rideService.userPower.unsubscribe,
     formatter: formatInt,
