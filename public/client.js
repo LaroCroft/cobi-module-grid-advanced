@@ -72,7 +72,7 @@ var definitions = [
     defaultValue: '-'
   }, 
   {
-    id: 'user_power',
+    id: 'power',
     name: 'User Power',
     subscribe: COBI.rideService.userPower.subscribe,
     unsubscribe: COBI.rideService.userPower.unsubscribe,
