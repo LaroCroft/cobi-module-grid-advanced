@@ -1,7 +1,7 @@
 COBI.init('token');
 
 // Make clock appear in upper right corner
-COBI.app.clockVisible.write(true);
+COBI.app.clockVisible.write(false);
 // Also listen to standard controller events
 COBI.devkit.overrideThumbControllerMapping.write(true);
 
@@ -58,7 +58,7 @@ var definitions = [
     name: 'Battery',
     subscribe: COBI.battery.state.subscribe,
     unsubscribe: COBI.battery.state.unsubscribe,
-    formatter: formatInt,
+    formatter: formatBattery,
     unit: '%',
     defaultValue: '-'
   }, 
