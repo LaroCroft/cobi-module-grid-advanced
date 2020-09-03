@@ -12,7 +12,7 @@ var defaultOrderedList = [
   'distance',
   'duration',
   'altitude',
-  'heading',
+  'bearing',
   'ascent',
 
   'speed',
