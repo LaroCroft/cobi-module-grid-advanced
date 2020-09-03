@@ -131,7 +131,7 @@ var definitions = [
     subscribe: COBI.mobile.heading.subscribe,
     unsubscribe: COBI.mobile.heading.unsubscribe,
     formatter: formatInt,
-    unit: '°',
+    unit: 'degrees',
     defaultValue: '-'
   },  
   {
