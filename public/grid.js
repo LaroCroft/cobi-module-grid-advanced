@@ -6,18 +6,17 @@ var defaultOrderedList = [
   'mode',
   'battery',
   'range',
-  'user_power',
+  'power',
+  'calories',
 
   'distance',
   'duration'
-  'calories',
   'altitude',
-
-  'speed_gps',
   'heading',
   'ascent',
-  'speed',
 
+  'speed',
+  'speed_gps',
   'average_speed',
   'cadence',
   'heart_rate',
