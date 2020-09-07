@@ -8,157 +8,132 @@ COBI.devkit.overrideThumbControllerMapping.write(true);
 // Disable Reordering in Experience
 var inEditMode = (COBI.parameters.context() == COBI.context.offRideSettings || COBI.parameters.context() == COBI.context.onRideSettings);
 
-// Allow user to zoom in and out
-COBI.hub.externalInterfaceAction.subscribe(function(action) {
-  // Listen to inputs and update zoom index variable
-  if ((action == 'UP' || action == 'RIGHT')) {
-    zoomIn();
-  }
-  if ((action == 'DOWN' || action == 'LEFT')) {
-    zoomOut();
-  }
-});
-
 // Display detailled item names if touch interaction is allowed
 COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
-  updateInterfaceVisibility(touchInteractionEnabled);
+  //updateInterfaceVisibility(touchInteractionEnabled);
 });
 
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [
+
+  // Motor
   {
-    id: 'mode',
-    name: 'Mode',
+    id: 'motor_mode',
     subscribe: COBI.motor.driveMode.subscribe,
     unsubscribe: COBI.motor.driveMode.unsubscribe,
     formatter: formatDriveMode,
-    unit: 'mode',
-    defaultValue: '-'
   },
   {
-    id: 'speed',
-    name: 'Speed',
-    subscribe: COBI.rideService.speed.subscribe,
-    unsubscribe: COBI.rideService.speed.unsubscribe,
-    formatter: formatSpeedDot1,
-    unit: 'km/h',
-    defaultValue: '-'
-  },
-  {
-    id: 'average_speed',
-    name: 'Avg Speed',
-    subscribe: COBI.tourService.averageSpeed.subscribe,
-    unsubscribe: COBI.tourService.averageSpeed.unsubscribe,
-    formatter: formatSpeedDot1,
-    unit: 'Ø km/h',
-    defaultValue: '-'
-  },
-  {
-    id: 'battery',
-    name: 'Battery',
-    subscribe: COBI.battery.state.subscribe,
-    unsubscribe: COBI.battery.state.unsubscribe,
-    formatter: formatBattery,
-    unit: '%',
-    defaultValue: '-'
-  }, 
-  {
-    id: 'range',
-    name: 'Range',
+    id: 'motor_range',
     subscribe: COBI.motor.range.subscribe,
     unsubscribe: COBI.motor.range.unsubscribe,
     formatter: formatInt,
-    unit: 'km',
-    defaultValue: '-'
   }, 
   {
-    id: 'power',
-    name: 'Power',
+    id: 'motor_assistance',
+    subscribe: COBI.motor.assistanceIndicator.subscribe,
+    unsubscribe: COBI.motor.assistanceIndicator.unsubscribe,
+    formatter: formatInt,
+  }, 
+  
+  // Battery
+  {
+    id: 'battery_battery',
+    subscribe: COBI.battery.state.subscribe,
+    unsubscribe: COBI.battery.state.unsubscribe,
+    formatter: formatBattery,
+  },
+
+  // Ride 
+  {
+    id: 'ride_speed',
+    subscribe: COBI.rideService.speed.subscribe,
+    unsubscribe: COBI.rideService.speed.unsubscribe,
+    formatter: formatSpeedDot1,
+  },
+  {
+    id: 'ride_power',
     subscribe: COBI.rideService.userPower.subscribe,
     unsubscribe: COBI.rideService.userPower.unsubscribe,
     formatter: formatInt,
-    unit: 'watts',
-    defaultValue: '-'
   },
   {
-    id: 'cadence',
-    name: 'Cadence',
+    id: 'ride_cadence',
     subscribe: COBI.rideService.cadence.subscribe,
     unsubscribe: COBI.rideService.cadence.unsubscribe,
     formatter: formatInt,
-    unit: 'rpm',
-    defaultValue: '-'
   },
   {
-    id: 'distance',
-    name: 'Distance',
-    subscribe: COBI.tourService.ridingDistance.subscribe,
-    unsubscribe: COBI.tourService.ridingDistance.unsubscribe,
-    formatter: formatDistanceDot1,
-    unit: 'km total',
-    defaultValue: '-'
-  },
-  {
-    id: 'calories',
-    name: 'Calories',
-    subscribe: COBI.tourService.calories.subscribe,
-    unsubscribe: COBI.tourService.calories.unsubscribe,
-    formatter: formatInt,
-    unit: 'kcal',
-    defaultValue: '-'
-  },
-  {
-    id: 'ascent',
-    name: 'Ascent',
-    subscribe: COBI.tourService.ascent.subscribe,
-    unsubscribe: COBI.tourService.ascent.unsubscribe,
-    formatter: formatInt,
-    unit: 'm',
-    defaultValue: '-'
-  },
-  {
-    id: 'altitude',
-    name: 'Altitude',
-    subscribe: COBI.mobile.location.subscribe,
-    unsubscribe: COBI.mobile.location.unsubscribe,
-    formatter: formatAltitude,
-    unit: 'm',
-    defaultValue: '-'
-  },  
-  {
-    id: 'bearing',
-    name: 'Bearing',
-    subscribe: COBI.mobile.location.subscribe,
-    unsubscribe: COBI.mobile.location.unsubscribe,
-    formatter: formatLocation,
-    unit: 'degrees',
-    defaultValue: '-'
-  },  
-  {
-    id: 'speed_gps',
-    name: 'GPS Speed',
-    subscribe: COBI.mobile.location.subscribe,
-    unsubscribe: COBI.mobile.location.unsubscribe,
-    formatter: formatGPSSpeedDot1,
-    unit: 'km/h',
-    defaultValue: '-'
-  },  
-  {
-    id: 'heart_rate',
-    name: 'Heart Rate',
+    id: 'ride_heart_rate',
     subscribe: COBI.rideService.heartRate.subscribe,
     unsubscribe: COBI.rideService.heartRate.unsubscribe,
     formatter: formatInt,
-    unit: 'bpm',
-    defaultValue: '-'
+  },
+  
+  // Tour
+  {
+    id: 'tour_calories',
+    subscribe: COBI.tourService.calories.subscribe,
+    unsubscribe: COBI.tourService.calories.unsubscribe,
+    formatter: formatInt,
   },
   {
-    id: 'duration',
-    name: 'Duration',
+    id: 'tour_average_speed',
+    subscribe: COBI.tourService.averageSpeed.subscribe,
+    unsubscribe: COBI.tourService.averageSpeed.unsubscribe,
+    formatter: formatSpeedDot1,
+  },
+
+  {
+    id: 'tour_distance',
+    subscribe: COBI.tourService.ridingDistance.subscribe,
+    unsubscribe: COBI.tourService.ridingDistance.unsubscribe,
+    formatter: formatDistanceDot1,
+  },
+  {
+    id: 'tour_duration',
     subscribe: COBI.tourService.ridingDuration.subscribe,
     unsubscribe: COBI.tourService.ridingDuration.unsubscribe,
-    formatter: formatMins,
-    unit: 'min',
-    defaultValue: '-'
-  }
+    formatter: formatStopwatch,
+  },
+  {
+    id: 'tour_ascent',
+    subscribe: COBI.tourService.ascent.subscribe,
+    unsubscribe: COBI.tourService.ascent.unsubscribe,
+    formatter: formatInt,
+  },
+
+  // Mobile
+  {
+    id: 'mobile_altitude',
+    subscribe: COBI.mobile.location.subscribe,
+    unsubscribe: COBI.mobile.location.unsubscribe,
+    formatter: formatAltitude,
+  },  
+  {
+    id: 'mobile_bearing',
+    subscribe: COBI.mobile.location.subscribe,
+    unsubscribe: COBI.mobile.location.unsubscribe,
+    formatter: formatLocation,
+  },  
+  {
+    id: 'mobile_speed',
+    subscribe: COBI.mobile.location.subscribe,
+    unsubscribe: COBI.mobile.location.unsubscribe,
+    formatter: formatGPSSpeedDot1,
+  },  
+
+  // Navigation
+  {
+    id: 'route_distance',
+    subscribe: COBI.navigationService.distanceToDestination.subscribe,
+    unsubscribe: COBI.navigationService.distanceToDestination.unsubscribe,
+    formatter: formatDistanceDot1,
+  }, 
+  {
+    id: 'route_eta',
+    subscribe: COBI.navigationService.eta.subscribe,
+    unsubscribe: COBI.navigationService.eta.unsubscribe,
+    formatter: formatInt,
+  }, 
 ];
