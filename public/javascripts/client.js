@@ -1,17 +1,6 @@
 COBI.init('token');
-
-// Make clock appear in upper right corner
 COBI.app.clockVisible.write(false);
-// Also listen to standard controller events
-COBI.devkit.overrideThumbControllerMapping.write(true);
-
-// Disable Reordering in Experience
-var inEditMode = (COBI.parameters.context() == COBI.context.offRideSettings || COBI.parameters.context() == COBI.context.onRideSettings);
-
-// Display detailled item names if touch interaction is allowed
-COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
-  //updateInterfaceVisibility(touchInteractionEnabled);
-});
+//COBI.devkit.overrideThumbControllerMapping.write(false);
 
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [
@@ -38,10 +27,16 @@ var definitions = [
   
   // Battery
   {
-    id: 'battery_battery',
+    id: 'battery_level',
     subscribe: COBI.battery.state.subscribe,
     unsubscribe: COBI.battery.state.unsubscribe,
-    formatter: formatBattery,
+    formatter: formatBatteryLevel,
+  },
+  {
+    id: 'battery_state',
+    subscribe: COBI.battery.state.subscribe,
+    unsubscribe: COBI.battery.state.unsubscribe,
+    formatter: formatBatteryState,
   },
 
   // Ride 
@@ -94,7 +89,7 @@ var definitions = [
     id: 'tour_duration',
     subscribe: COBI.tourService.ridingDuration.subscribe,
     unsubscribe: COBI.tourService.ridingDuration.unsubscribe,
-    formatter: formatStopwatch,
+    formatter: formatDuration,
   },
   {
     id: 'tour_ascent',
@@ -110,18 +105,6 @@ var definitions = [
     unsubscribe: COBI.mobile.location.unsubscribe,
     formatter: formatAltitude,
   },  
-  {
-    id: 'mobile_bearing',
-    subscribe: COBI.mobile.location.subscribe,
-    unsubscribe: COBI.mobile.location.unsubscribe,
-    formatter: formatLocation,
-  },  
-  {
-    id: 'mobile_speed',
-    subscribe: COBI.mobile.location.subscribe,
-    unsubscribe: COBI.mobile.location.unsubscribe,
-    formatter: formatGPSSpeedDot1,
-  },  
 
   // Navigation
   {
@@ -134,6 +117,6 @@ var definitions = [
     id: 'route_eta',
     subscribe: COBI.navigationService.eta.subscribe,
     unsubscribe: COBI.navigationService.eta.unsubscribe,
-    formatter: formatInt,
+    formatter: formatEpoch,
   }, 
 ];

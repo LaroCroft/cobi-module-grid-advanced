@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html manifest="appcache.manifest">
+<head>
+  <meta charset="UTF-8" name="viewport" content="maximum-scale=1,initial-scale=1,user-scalable=no" />
+  <title>COBI Grid Advanced</title>
+  <link rel="stylesheet" href="css/uikit.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+  <body>
+    <ul id="main-grid" class="uk-grid-small uk-child-width-1-5 uk-text-center" uk-grid>
+
+      <li class="uk-width-2-5">
+          <div class="uk-card uk-card-default uk-card-body">
+            <div class="label">mode</div>
+            <div class="value" id="motor_mode">—</div>
+            <div class="unit">
+                <span class="label-small">Assistance</span>
+                <span class="value-small" id="motor_assistance">—</span>
+                <span class="unit-small">%</span>
+            </div>
+          </div>
+      </li>
+      <li>
+          <div class="uk-card uk-card-default uk-card-body">
+            <div class="label" style="margin-bottom:6px">speed</div>
+            <div class="value" id="ride_speed">—</div>
+            <div class="unit">
+                <span class="label-small">Avg</span><br>
+                <span class="value-small" id="tour_average_speed">—</span>
+                <span class="unit-small">km/h</span>
+            </div>
+          </div>
+
+      </li>      
+      <li>
+          <div class="uk-card uk-card-default uk-card-body">
+            <div class="label">battery</div>
+            <div class="value" id="battery_level">—</div>
+            <div class="unit">
+                <span class="label-small">State</span>
+                <span class="value-small" id="battery_state">—</span>
+                <span class="unit-small"></span> 
+            </div>
+          </div>
+      </li>
+      <li>
+          <div class="uk-card uk-card-default uk-card-body">
+            <div class="label">range</div>
+            <div class="value" id="motor_range">—</div>
+            <div class="unit">km</div>
+          </div>
+      </li>
+      
+      
+      <li>
+          <div class="uk-card uk-card-default uk-card-body">
+            <div class="label">distance</div>
+            <div class="value" id="tour_distance">—</div>
+            <div class="unit">
+                <span class="label-small">Remaining</span><br>
+                <span class="value-small" id="route_distance">—</span>
+                <span class="unit-small">km</span>
+            </div>
+          </div>
+      </li>
+      <li>
+          <div class="uk-card uk-card-default uk-card-body">
+            <div class="label">duration</div>
+            <div class="value" id="tour_duration">—</div>
+            <div class="unit">
+                <span class="label-small">ETA</span><br>
+                <span class="value-small" id="route_eta">—</span>
+                <span class="unit-small">h:m</span>
+            </div>
+          </div>
+      </li>
+      <li>
+          <div class="uk-card uk-card-default uk-card-body">
+            <div class="label">altitude</div>
+            <div class="value" id="mobile_altitude">—</div>
+            <div class="unit">
+                <span class="label-small">Ascent</span><br>
+                <span class="value-small" id="tour_ascent">—</span>
+                <span class="unit-small">m</span>
+            </div>            
+          </div>
+      </li>
+      <li>
+          <div class="uk-card uk-card-default uk-card-body">
+            <div class="label">power</div>
+            <div class="value" id="ride_power">—</div>
+            <div class="unit">
+                <span class="label-small">Cadence</span><br>
+                <span class="value-small" id="ride_cadence">—</span>
+                <span class="unit-small">rpm</span>
+            </div>
+          </div>
+      </li>
+      <li>
+          <div class="uk-card uk-card-default uk-card-body">
+            <div class="label">calories</div>
+            <div class="value" id="tour_calories">—</div>
+            <div class="unit">
+                <span class="label-small">Heart</span><br>
+                <span class="value-small" id="ride_heart_rate">—</span>
+                <span class="unit-small">bpm</span>
+            </div>
+          </div>
+      </li>
+  </ul>
+
+  <script src="javascripts/jquery.min.js"></script>
+  <script src="javascripts/uikit.min.js"></script>
+  <script src="javascripts/cobi.js"></script>
+  <script src="javascripts/utils.js"></script>
+  <script src="javascripts/client.js"></script>
+  <script src="javascripts/grid.js"></script>
+  </body>
+</html>
